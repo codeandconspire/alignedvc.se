@@ -1,0 +1,19 @@
+{
+  "name": "wearealigned.se",
+  "version": "1.0.0",
+  "description": "Public website for Aligned, VC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeandconspire/wearealigned.se.git"
+  },
+  "author": "code and conspire",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codeandconspire/wearealigned.se/issues"
+  },
+  "homepage": "https://github.com/codeandconspire/wearealigned.se#readme"
+}
