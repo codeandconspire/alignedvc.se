@@ -190,6 +190,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-height: calc(100vh - env(safe-area-inset-bottom));
   max-height: 60rem;
   padding-top: clamp(4.6rem, -3.7rem + 33.2vw, 8.75rem);
   padding-bottom: clamp(1.5rem, -0.5rem + 8vw, 5rem);
