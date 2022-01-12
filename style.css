@@ -191,12 +191,15 @@ body {
   flex-direction: column;
   min-height: 100vh;
   max-height: 60rem;
-  padding-top: 20rem;
-  padding-bottom: 6rem;
+  padding-top: clamp(4.6rem, -3.7rem + 33.2vw, 8.75rem);
+  padding-bottom: clamp(1.5rem, -0.5rem + 8vw, 5rem);
 }
 
 .Intro-title {
   flex-grow: 1;
+  display: flex;
+  align-items: center;
+  max-width: 8.5em;
 }
 
 .Intro-title span {
@@ -362,7 +365,7 @@ body {
  */
 
 .Portfolio {
-  margin-top: calc(var(--space) - 6rem);
+  margin-top: calc(var(--space) - clamp(1.5rem, -0.5rem + 8vw, 5rem));
 }
 
 .Portfolio-title {
@@ -430,8 +433,10 @@ body {
 }
 
 .Investment {
+  --Investment-padding: clamp(1.5rem, 1.321rem + 1.714vw, 2.5rem);
+
   position: relative;
-  padding: 7.5rem 2.5rem 2.5rem;
+  padding: var(--Investment-padding) 2.5rem;
   border: 1px solid var(--gray);
   border-width: 1px 1px 1px 0;
   margin: 0 0 -1px 0;
@@ -440,7 +445,7 @@ body {
 
 .Investment-title {
   font-size: clamp(1.25rem, 0.7778rem + 0.8889vw, 1.5rem);
-  margin: 0 0 0.5rem;
+  margin: clamp(3rem, 3.428rem + 2.285vw, 5rem) 0 0.5rem;
 }
 
 .Investment-data {
@@ -469,7 +474,7 @@ body {
 .Investment-link::before {
   content: "";
   position: absolute;
-  top: 2.5rem;
+  top: var(--Investment-padding);
   right: 2.5rem;
   border-radius: 50%;
   background: #282B24;
@@ -497,8 +502,6 @@ body {
   max-width: 9rem;
   max-height: 4.2rem;
   position: absolute;
-  top: 2.5rem;
-  left: 2.5rem;
   transform-origin: top left;
   user-select: none;
 }
