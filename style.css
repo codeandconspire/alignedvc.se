@@ -1,0 +1,514 @@
+/* Anton Trollbäck, 2021 – Keep it simple. */
+
+/**
+ * Setup
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=block");
+
+@font-face {
+  font-family: "Neue Haas Unica";
+  font-weight: 900;
+  font-display: block;
+  src: url("/nhub.woff2");
+}
+
+:root {
+  --black: #181B14;
+  --white: #ECEBEA;
+  --gray: #383A34;
+  --red: #E87B7B;
+  --orange: #FFA978;
+  --yellow: #F2EE81;
+  --font-text: "Inter", -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif;
+  --font-title: "Neue Haas Unica", -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif;
+  --space: clamp(4rem, 2.2222rem + 7.1111vw, 8rem);
+
+  font-family: var(--font-text);
+  background: var(--black);
+  color: var(--white);
+  letter-spacing: 0.005em;
+  cursor: default;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(242, 238, 129, 0.5);
+}
+
+body {
+  margin: 0;
+}
+
+/**
+ * Utilities
+ */
+
+.u-container {
+  max-width: 90rem;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, -0.5rem + 8vw, 5rem);
+}
+
+.u-orange {
+  color: var(--orange);
+}
+
+.u-red {
+  color: var(--red);
+}
+
+.u-title,
+.u-label {
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-size: clamp(2.75rem, 0.8611rem + 7.5556vw, 7rem);
+  max-width: 9em;
+  line-height: 0.93;
+  letter-spacing: -0.03em;
+  word-spacing: -0.02em;
+  margin: -0.16em 0 0.35em;
+}
+
+.u-label {
+  font-size: clamp(1.25rem, 0.9167rem + 1.3333vw, 2rem);
+  word-spacing: -0.02em;
+  margin: -0.16em 0 1em;
+}
+
+.u-text {
+  max-width: 28em;
+  margin: 0;
+  font-size: clamp(1rem, 0.7778rem + 0.8889vw, 1.5rem);
+  line-height: 1.35;
+  letter-spacing: 0.0075em;
+}
+
+.u-text + .u-text {
+  margin-top: 1em;
+}
+
+.u-small {
+  font-size: clamp(0.875rem, 0.8472rem + 0.1111vw, 0.9375rem);
+  max-width: 26em;
+}
+
+.u-text a {
+  color: inherit;
+  transition: color 90ms ease-out;
+}
+
+.u-text a:hover {
+  color: var(--orange);
+}
+
+.u-text a:active {
+  opacity: 0.5;
+}
+
+/**
+ * Header
+ */
+
+.Header {
+  --Header-nav-space: clamp(0.5rem, -2.5000rem + 12.0000vw, 2rem);
+
+  position: absolute;
+  width: 100%;
+  padding-top: clamp(1.5rem, -0.5rem + 8vw, 2.75rem);
+  user-select: none;
+}
+
+.Header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Header-nav {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  flex: 1;
+  justify-content: flex-end;
+  white-space: nowrap;
+  margin: 0 calc(var(--Header-nav-space) * -0.5) 0 0;
+}
+
+.Header-nav li {
+  display: flex;
+}
+
+.Header-nav a {
+  padding: calc(var(--Header-nav-space) / 2);
+  font-size: clamp(0.75rem, 0.5278rem + 0.8889vw, 1.25rem);
+  text-decoration: none;
+  color: inherit;
+  transition: color 90ms ease-out;
+}
+
+.Header-nav a:hover {
+  color: var(--orange);
+}
+
+.Header-nav a:active {
+  opacity: 0.5;
+}
+
+/**
+ * Logo
+ */
+
+
+.Logo {
+  display: block;
+  font-size: 0;
+  color: transparent;
+}
+
+.Logo svg {
+  display: block;
+  max-width: clamp(5rem, 2.7778rem + 8.8889vw, 10rem);
+  height: auto;
+  color: var(--yellow);
+  transition: color 90ms ease-out;
+}
+
+.Logo:hover svg {
+  color: var(--orange);
+}
+
+/**
+ * Intro & Brief
+ */
+
+.Intro {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-height: 60rem;
+  padding-top: 15rem;
+  padding-bottom: 4rem;
+}
+
+.Intro-title {
+  flex-grow: 1;
+}
+
+.Intro-title span {
+  font-size: 0;
+  color: transparent;
+}
+
+.Brief {
+  --Brief-gap: clamp(3rem, -0.2000rem + 6.4000vw, 5rem);
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 2rem var(--Brief-gap);
+}
+
+.Brief-main {
+  flex: 1;
+}
+
+.Brief-aside {
+  display: flex;
+  flex-wrap: nowrap;
+  grid-gap: 0 var(--Brief-gap);
+}
+
+.Brief-figure {
+  flex: 1;
+}
+
+.Brief-data {
+  display: block;
+  margin: 0.05em 0 0;
+  font-size: clamp(1.75rem, 1.1944rem + 2.2222vw, 3rem);
+}
+
+/**
+ * Footer
+ */
+
+.Footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: clamp(1.5rem, -0.5rem + 8vw, 5rem);
+  padding-bottom: clamp(1.5rem, -0.5rem + 8vw, 5rem);
+  user-select: none;
+}
+
+/**
+ * Chapter
+ */
+
+.Chapter {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: var(--space);
+  margin-bottom: var(--space);
+}
+
+.Chapter-aside {
+  width: 8.5rem;
+  padding-right: clamp(0rem, -16.3333rem + 37.3333vw, 14rem);
+}
+
+.Chapter-main {
+  max-width: 50rem;
+  flex: 1;
+  flex-basis: 30rem;
+}
+
+/**
+ * About & Team
+ */
+
+.About {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 3rem 5rem;
+  margin-top: var(--space);
+  margin-bottom: var(--space);
+  padding-top: var(--space);
+  padding-bottom: var(--space);
+}
+
+.About-main {
+  flex: 1;
+  flex-basis: 30rem;
+}
+
+.About-team {
+  flex: 1;
+  flex-basis: 30rem;
+}
+
+.About-title {
+  font-size: clamp(2.75rem, 0.8611rem + 7.5556vw, 6rem);
+  line-height: 0.85;
+  margin-top: -0.1em;
+}
+
+.About::before,
+.About::after {
+  content: "";
+  background: var(--gray);
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.About::after {
+  top: auto;
+  bottom: 0;
+}
+
+.About-div {
+  margin: clamp(1.5rem, 1.2778rem + 0.8889vw, 2rem) 0;
+  width: 3.5rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.2;
+}
+
+.Team {
+  display: flex;
+  align-items: flex-start;
+}
+
+.Team + .Team {
+  margin-top: 3rem;
+}
+
+.Team-pic {
+  background: black;
+  margin-right: clamp(1.5rem, 1.0556rem + 1.7778vw, 2.5rem);
+  width: 30vw;
+  max-width: 13rem;
+  height: auto;
+}
+
+.Team-body {
+  flex: 1;
+}
+
+.Team-title {
+  max-width: 100%;
+  margin: -0.1em 0 0;
+}
+
+.Team-position {
+  display: block;
+  font-size: clamp(1rem, 0.7778rem + 0.8889vw, 1.5rem);
+  margin: 0.25rem 0 1.5rem;
+}
+
+.Team:first-child .u-text a:hover {
+  color: var(--red);
+}
+
+/**
+ * Portfolio & Investment
+ */
+
+.Portfolio {
+  margin-top: calc(var(--space) - 4rem);
+}
+
+.Portfolio-title {
+  margin: 0 0 2rem;
+}
+
+.Portfolio-content {
+  overflow: hidden;
+  position: relative;
+}
+
+.Portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr) );
+  width: calc(100% + 5rem);
+  padding: 0;
+  margin: 0 -2.5rem;
+  list-style: none;
+  border-bottom: 1px solid var(--gray);
+}
+
+.Portfolio-expand {
+  display: none;
+  background: var(--yellow);
+  color: var(--black);
+  border-radius: 4rem;
+  padding: 1.5rem 2rem 1.75rem;
+  font-size: clamp(1.25rem, 0.7778rem + 0.8889vw, 1.5rem);
+  position: absolute;
+  bottom: 5.5rem;
+  left: 50%;
+  z-index: 2;
+  transform: translateX(-50%);
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background 100ms ease-out;
+  white-space: nowrap;
+}
+
+.Portfolio-expand:hover {
+  background: var(--orange);
+}
+
+.Portfolio.is-collapsed .Portfolio-content {
+  height: 72rem;
+}
+
+.Portfolio.is-collapsed .Portfolio-expand {
+  display: block;
+}
+
+.Portfolio.is-collapsed .Portfolio-content::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 30rem;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(27, 27, 20, 0) 0%, var(--black) 100%);
+  pointer-events: none;
+}
+
+.Investment {
+  position: relative;
+  padding: 7.5rem 2.5rem 2.5rem;
+  border: 1px solid var(--gray);
+  border-width: 1px 1px 1px 0;
+  margin: 0 0 -1px 0;
+  position: relative;
+}
+
+.Investment-title {
+  font-size: clamp(1.25rem, 0.7778rem + 0.8889vw, 1.5rem);
+  margin: 0 0 0.5rem;
+}
+
+.Investment-data {
+  margin: 1.25rem 0 0;
+  font-size: 0.8125rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  grid-gap: 1.25rem;
+}
+
+.Investment-data strong {
+  display: block;
+}
+
+.Investment-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-style: 0;
+  color: transparent;
+}
+
+.Investment-link::before {
+  content: "";
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  border-radius: 50%;
+  background: #282B24;
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: background 110ms ease-out;
+  background: #282B24 url("data:image/svg+xml,%3Csvg role='presentation' width='15' height='15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 1h10M14 0v11M14 1 1 14' stroke='%23ECEBEA' stroke-width='2'/%3E%3C/svg%3E") no-repeat;
+  background-position: 0.75rem 0.8rem;
+}
+
+.Investment-link:hover::before {
+  background-color: var(--red);
+}
+
+.Investment:active .Investment-link,
+.Investment-link:active {
+  opacity: 0.7;
+}
+
+.Investment-link svg {
+  transform: translate(-1px, 1px);
+}
+
+.Investment img {
+  max-width: 9rem;
+  max-height: 4.2rem;
+  position: absolute;
+  top: 2.5rem;
+  left: 2.5rem;
+  transform-origin: top left;
+  user-select: none;
+}
+
+/* .Investment-link::before {
+  content: "Align helper";
+  height: 100%;
+  border: 1px solid red;
+  border-width: 1px 0;
+  width: 100rem;
+  position: absolute;
+  pointer-events: none;
+} */
