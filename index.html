@@ -326,6 +326,25 @@
       </div>
     </section>
 
+    <section class="Gallery">
+      <figure class="Gallery-item">
+        <img loading="lazy" alt="" src="https://res.cloudinary.com/dykmd8idd/image/upload/v1642000354/aligned/fiunder-3.jpg">
+        <figcaption><p class="u-small">The founders of Three spirits</p></figcaption>
+      </figure>
+      <figure class="Gallery-item">
+        <img loading="lazy" alt="" src="https://res.cloudinary.com/dykmd8idd/image/upload/v1642000389/aligned/founder-1.jpg">
+        <figcaption><p class="u-small">Greg Moission, founder of Wild immersion</p></figcaption>
+      </figure>
+      <figure class="Gallery-item">
+        <img loading="lazy" alt="" src="https://res.cloudinary.com/dykmd8idd/image/upload/v1642000355/aligned/founder-2.jpg">
+        <figcaption><p class="u-small">The founders of All Aboard</p></figcaption>
+      </figure>
+      <figure class="Gallery-item">
+        <img loading="lazy" alt="" src="https://res.cloudinary.com/dykmd8idd/image/upload/v1642000355/aligned/founder-4.jpg">
+        <figcaption><p class="u-small">The founders of Flowery</p></figcaption>
+      </figure>
+    </section>
+
     <section class="Chapter u-container">
       <strong class="Chapter-aside u-label">What we invest in</strong>
       <div class="Chapter-main">
@@ -389,6 +408,24 @@
 
 
   <script>
+    // Only call RAF when needed
+    function raf (render) {
+      var scheduled = false
+      return function frame () {
+        if (!scheduled) {
+          scheduled = true
+          window.requestAnimationFrame(function redraw () {
+            scheduled = false
+            render()
+          })
+        }
+      }
+    }
+
+    function vh () {
+      return Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+    }
+
     function navigation () {
       for (var link of document.querySelectorAll('.Header-nav a')) {
         link.addEventListener('click', function (event) {
@@ -409,7 +446,37 @@
     }
 
     function gallery () {
+      var el = document.querySelector('.Gallery')
+      var inview
+      var offset, height, viewport
+      var onscroll = raf(function () {
+        var scrollY = window.scrollY
+        if (scrollY > offset + height) {
+          if (inview) el.style.setProperty('--Gallery-offset', 1)
+          return
+        }
+        if (scrollY + viewport < offset) {
+          if (inview) el.style.setProperty('--Gallery-offset', 0)
+          return
+        }
+        var ratio = 1 - ((offset + height - scrollY) / (viewport + height))
+        el.style.setProperty('--Gallery-scroll', ratio.toFixed(3))
+        inview = true
+      })
 
+      var onresize = raf(function () {
+        offset = el.offsetTop
+        height = el.offsetHeight
+        viewport = vh()
+        var parent = el
+        while ((parent = parent.offsetParent)) offset += parent.offsetTop
+        onscroll()
+      })
+
+      onresize()
+      onscroll()
+      window.addEventListener('resize', onresize)
+      window.addEventListener('scroll', onscroll, { passive: true })
     }
 
     function portfolio () {
