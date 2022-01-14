@@ -270,6 +270,14 @@ body {
   flex-basis: 30rem;
 }
 
+.Chapter-div {
+  margin: clamp(1.5rem, 1.2778rem + 0.8889vw, 2rem) 0;
+  width: 3.5rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.2;
+}
+
 /**
  * About & Team
  */
@@ -315,14 +323,6 @@ body {
 .About::after {
   top: auto;
   bottom: 0;
-}
-
-.About-div {
-  margin: clamp(1.5rem, 1.2778rem + 0.8889vw, 2rem) 0;
-  width: 3.5rem;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.2;
 }
 
 .Team {
@@ -414,7 +414,7 @@ body {
 }
 
 .Portfolio.is-collapsed .Portfolio-content {
-  height: 72rem;
+  height: 45.4rem;
 }
 
 .Portfolio.is-collapsed .Portfolio-expand {
