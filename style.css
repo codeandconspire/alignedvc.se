@@ -53,6 +53,10 @@ body {
   padding: 0 clamp(1.5rem, -0.5rem + 8vw, 5rem);
 }
 
+.u-yellow {
+  color: var(--yellow);
+}
+
 .u-orange {
   color: var(--orange);
 }
@@ -96,6 +100,14 @@ body {
   max-width: 26em;
 }
 
+.u-small + .u-small {
+  margin-top: 0.5em;
+}
+
+.u-text:not(.u-small) + .u-small {
+  margin-top: 1.35em;
+}
+
 .u-text a {
   color: inherit;
   transition: color 90ms ease-out;
@@ -107,6 +119,18 @@ body {
 
 .u-text a:active {
   opacity: 0.5;
+}
+
+.u-linkedin {
+  display: inline-block;
+  padding: 0.5em;
+  margin: -0.35em -0.5em -0.5em;
+}
+
+.u-linkedin svg {
+  width: 1rem;
+  height: 1rem;
+  display: block;
 }
 
 /**
@@ -162,7 +186,6 @@ body {
  * Logo
  */
 
-
 .Logo {
   display: block;
   font-size: 0;
@@ -173,12 +196,12 @@ body {
   display: block;
   max-width: clamp(5rem, 2.7778rem + 8.8889vw, 10rem);
   height: auto;
-  color: var(--yellow);
+  color: var(--orange);
   transition: color 90ms ease-out;
 }
 
 .Logo:hover svg {
-  color: var(--orange);
+  color: var(--yellow);
 }
 
 /**
