@@ -233,7 +233,7 @@
             <a class="Investment-link" href="https://memory.ai" target="_blank" rel="noopener noreferrer">Visit Memory</a>
           </li>
           <li class="Investment">
-            <img src="/img/Mindhackers.svg" alt="Insights logo" style="transform: scale(1.1) translateY(0.8rem)">
+            <img src="/img/Mindhackers.svg" alt="Insights logo" style="transform: scale(0.9) translateY(0.07rem); opacity: 0.9;">
             <h2 class="Investment-title u-label">Insights</h2>
             <p class="u-text u-small">Giving people access to expert insights and key learnings from tldr, talks and podcasts by world renowned health & wellness thought leaders, in just a few&nbsp;swipes.</p>
             <ul class="Investment-data">
@@ -360,19 +360,19 @@
     <div class="Gallery">
       <figure class="Gallery-item">
         <img loading="lazy" alt="" src="https://res.cloudinary.com/dykmd8idd/image/upload/v1642000354/aligned/fiunder-3.jpg">
-        <figcaption><p class="u-text u-small">Three Spirits</p></figcaption>
+        <figcaption><p class="u-text u-small">The&nbsp;team&nbsp;at Three&nbsp;Spirits</p></figcaption>
       </figure>
       <figure class="Gallery-item">
         <img loading="lazy" alt="" src="https://res.cloudinary.com/dykmd8idd/image/upload/v1642000389/aligned/founder-1.jpg">
-        <figcaption><p class="u-text u-small">Wild immersion, Greg Moission</p></figcaption>
+        <figcaption><p class="u-text u-small">Greg&nbsp;Moission from Wild&nbsp;immersion</p></figcaption>
+      </figure>
+      <figure class="Gallery-item">
+        <img loading="lazy" alt="" src="https://res.cloudinary.com/dykmd8idd/image/upload/v1645974034/aligned/Stephen-Freshsound.jpg">
+        <figcaption><p class="u-text u-small">Stephen&nbsp;G. from Freshsound</p></figcaption>
       </figure>
       <figure class="Gallery-item">
         <img loading="lazy" alt="" src="https://res.cloudinary.com/dykmd8idd/image/upload/v1642000355/aligned/founder-2.jpg">
-        <figcaption><p class="u-text u-small">All Aboard, Carl, Karl, Anton and Therese</p></figcaption>
-      </figure>
-      <figure class="Gallery-item">
-        <img loading="lazy" alt="" src="https://res.cloudinary.com/dykmd8idd/image/upload/v1642000355/aligned/founder-4.jpg">
-        <figcaption><p class="u-text u-small">Flowery</p></figcaption>
+        <figcaption><p class="u-text u-small">The team at All&nbsp;Aboard</p></figcaption>
       </figure>
     </div>
 
@@ -495,11 +495,11 @@
       var onscroll = raf(function () {
         var scrollY = window.scrollY
         if (scrollY > offset + height) {
-          if (inview) el.style.setProperty('--Gallery-offset', 1)
+          if (inview) el.style.setProperty('--Gallery-scroll', 1)
           return
         }
         if (scrollY + viewport < offset) {
-          if (inview) el.style.setProperty('--Gallery-offset', 0)
+          if (inview) el.style.setProperty('--Gallery-scroll', 0)
           return
         }
         var ratio = 1 - ((offset + height - scrollY) / (viewport + height))
