@@ -357,7 +357,7 @@
       </div>
     </section>
 
-    <div class="Gallery">
+    <div class="Gallery" style="--Gallery-scroll: 0">
       <figure class="Gallery-item">
         <img loading="lazy" alt="" src="https://res.cloudinary.com/dykmd8idd/image/upload/v1642000354/aligned/fiunder-3.jpg">
         <figcaption><p class="u-text u-small">The&nbsp;team&nbsp;at Three&nbsp;Spirits</p></figcaption>
@@ -451,6 +451,14 @@
 
 
   <script>
+    function ready(fn) {
+      if (document.readyState != 'loading'){
+        fn();
+      } else {
+        document.addEventListener('DOMContentLoaded', fn);
+      }
+    }
+
     // Only call RAF when needed
     function raf (render) {
       var scheduled = false
@@ -531,11 +539,11 @@
       })
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
+    ready(function () {
       navigation()
       portfolio()
       gallery()
-    }, false)
+    })
   </script>
 </body>
 </html>
