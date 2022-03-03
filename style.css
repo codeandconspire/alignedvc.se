@@ -146,19 +146,15 @@ body {
  */
 
 .Header {
-  --Header-nav-space: clamp(0.7rem, -1.9rem + 10.4vw, 2rem);
+  --Header-nav-space: clamp(1rem, -1.9rem + 10.4vw, 2rem);
 
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   padding-top: clamp(1.5rem, -0.5rem + 8vw, 2.75rem);
   user-select: none;
-}
 
-@media (min-width: 75rem) {
-  .Header {
-    position: fixed;
-    z-index: 10;
-  }
+  position: fixed;
+  z-index: 10;
 }
 
 .Header-content {
@@ -221,6 +217,50 @@ body {
 }
 
 /**
+ * Animation
+ */
+
+.Animation {
+  position: relative;
+  display: flex;
+  color: var(--orange);
+  align-items: flex-start;
+
+  will-change: transform;
+  transform: translateY(calc(var(--Animation-scroll) * (var(--vh) / 2)));
+}
+
+.Animation svg {
+  position: sticky;
+  top: 0;
+  height: var(--vh);
+}
+
+.Animation svg:nth-child(2) {
+  margin-top: 40%;
+}
+
+.Animation svg:nth-child(3) {
+  margin-top: 100%;
+}
+
+.Animation svg:nth-child(4) {
+  margin-top: 15%;
+}
+
+.Animation svg:nth-child(5) {
+  margin-top: 120%;
+}
+
+.Animation svg:nth-child(6) {
+  margin-top: 75%;
+}
+
+.Animation svg:nth-child(7) {
+  margin-top: 35%;
+}
+
+/**
  * Intro
  */
 
@@ -228,8 +268,8 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  min-height: calc(100vh - env(safe-area-inset-bottom));
+  /* min-height: 100vh;
+  min-height: calc(100vh - env(safe-area-inset-bottom)); */
   max-height: 60rem;
   padding-top: clamp(4.6rem, -3.7rem + 33.2vw, 8.75rem);
   padding-bottom: clamp(1.5rem, -0.5rem + 8vw, 5rem);
@@ -240,6 +280,8 @@ body {
   display: flex;
   align-items: center;
   max-width: 8.5em;
+
+  margin-bottom: clamp(4.6rem, -3.7rem + 33.2vw, 8.75rem);
 }
 
 .Intro-title span {
@@ -683,13 +725,13 @@ body {
   .Gallery-item:nth-child(1) {
     width: 36vw;
     margin: 0 18vw 0 auto;
-    transform: translateY(calc(var(--Gallery-scroll) * (var(--Gallery-motion) * 0.5)));
+    transform: translateY(calc(var(--Gallery-scroll) * (var(--Gallery-motion) * 0.6)));
   }
 
   .Gallery-item:nth-child(2) {
     margin: -13vw 0 0 auto;
     width: 25vw;
-    transform: translateY(calc(var(--Gallery-scroll) * (var(--Gallery-motion) * -0.85)));
+    transform: translateY(calc(var(--Gallery-scroll) * (var(--Gallery-motion) * -1)));
   }
 
   .Gallery-item:nth-child(3) {
