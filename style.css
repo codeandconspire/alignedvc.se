@@ -225,13 +225,15 @@ body {
  */
 
 .Animation {
+  --Animation-scroll: 0;
+
   position: relative;
   display: flex;
   color: var(--orange);
   align-items: flex-start;
-
+  pointer-events: none;
   will-change: transform;
-  transform: translateY(calc(var(--Animation-scroll) * (var(--vh) / 2)));
+  transform: translateY(calc(var(--Animation-scroll) * (var(--vh) * 0.6)));
 }
 
 .Animation svg {
@@ -615,8 +617,8 @@ body {
   position: relative;
   z-index: -1;
   will-change: opacity, transform;
-  opacity: calc(1 - (var(--Gallery-scroll)) * 0.75);
   transform: translateY(calc(var(--Gallery-scroll) * (var(--Gallery-motion) * -1)));
+  /* opacity: calc(1 - (var(--Gallery-scroll)) * 0.75); */
 }
 
 .Gallery::after {

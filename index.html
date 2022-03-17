@@ -60,7 +60,7 @@
     </div>
 
     <section class="Intro u-container">
-      <h1 class="Intro-title u-title"><span>Aligned VC – </span>Helping founders bring their ideas to&nbsp;life</h1>
+      <h1 class="Intro-title u-title"><span>Aligned VC – </span>Helping unconventional founders bring their ideas to&nbsp;life</h1>
 
       <div class="Brief">
         <div class="Brief-main">
@@ -363,7 +363,7 @@
     </section>
 
     <div class="Gallery" style="--Gallery-scroll: 0">
-      <figure class="Gallery-item" style="padding-bottom: 1374/1593 * 100">
+      <figure class="Gallery-item">
         <img width="1374" height="1593" alt="" src="//res.cloudinary.com/dykmd8idd/image/upload/v1642000354/aligned/fiunder-3.jpg">
         <figcaption><p class="u-text u-small">The&nbsp;team&nbsp;at Three&nbsp;Spirits</p></figcaption>
       </figure>
@@ -536,12 +536,10 @@
       var calculate = raf(function () {
         offset = element.offsetTop
         height = element.offsetHeight
-        console.log(height, property)
         viewport = vh()
         var parent = element
         while ((parent = parent.offsetParent)) offset += parent.offsetTop
         onscroll()
-        console.log('calc')
       })
 
       notify.push(calculate)
