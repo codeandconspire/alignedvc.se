@@ -597,6 +597,10 @@
       var portfolio = document.querySelector('.Portfolio')
       portfolio.classList.add('is-collapsed')
 
+      setInterval(update, 1000)
+      setInterval(update, 2000)
+      setInterval(update, 3000)
+
       portfolio.querySelector('.Portfolio-expand').addEventListener('click', function (event) {
         portfolio.classList.remove('is-collapsed')
         update()
