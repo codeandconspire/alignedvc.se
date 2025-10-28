@@ -3,3 +3,7 @@
 
 /*.svg
   Content-Type: image/svg+xml; charset=utf-8
+/*/*.svg
+  Content-Type: image/svg+xml; charset=utf-8
+/*/*/*.svg
+  Content-Type: image/svg+xml; charset=utf-8
